@@ -1,0 +1,26 @@
+1) Add the __contains__ protocol and show whether or not  'Tim' and 'Sam' are part of our team.  
+2) Add the __iter__ protocol and show how you can print each member of the classmates object.
+3) Determine if the class classmates implements the __len__ method.
+
+class Teams:
+  def __init__(self, members):
+    self.__myTeam = members
+
+  def __len__(self):
+    return len(self.__myTeam)
+
+  def __contains__(self, x):
+    return x in self.__myTeam
+
+  def __iter__(self):
+    return iter(self.__myTeam)
+
+def main():
+  classmates = Teams(['John', 'Steve', 'Tim'])
+  print('\n'"There are",len(classmates),"classmates in our class.", end='\n\n')
+  print('Tim is on our team:', 'Tim' in classmates, end='\n\n')
+  print('Sam is on our team:', 'Sam' in classmates, end='\n\n')
+  print("The members of our team are:",', '.join(classmates), end='\n\n')
+  print('Len method exists in the "classmates" class:', "__len__" in dir(classmates), end='\n\n')
+
+main()
